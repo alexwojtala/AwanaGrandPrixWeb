@@ -11,12 +11,13 @@ import LineupPage from './pages/Lineup/LineupPage';
 import LeaderboardPage from './pages/Leaderboard/LeaderboardPage';
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://awana-grand-prix-api.herokuapp.com/';
 axios.defaults.headers.common = { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` }
 
+console.log("Your process.env.PUBLIC_URL", process.env.PUBLIC_URL)
 
 const routing = (
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <div>
       <Route exact path="/" component={App} />
       <Route exact path="/check-in" component={CheckInPage} />

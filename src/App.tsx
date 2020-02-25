@@ -38,7 +38,11 @@ const App = () => {
 
           <label>Password:</label> <input type="password" onChange={(event) => { setPassword(event.target.value) }} /><br />
 
-          <button onClick={SignIn}>Submit</button>
+          <button onClick={(event: any) => {
+            SignIn(event);
+            console.log('here');
+            console.log('here');
+          }}>Submit</button>
         </div>
       }
     </>
