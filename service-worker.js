@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/AwanaGrandPrixWeb/precache-manifest.d398a1aa9cff0660c3e1f674a0fa5212.js"
+  "/AwanaGrandPrixWeb/precache-manifest.cda11ac6787eb72d63f896e1bdfc3daa.js"
 );
 
 self.addEventListener('message', (event) => {
