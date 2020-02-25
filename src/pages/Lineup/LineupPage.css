@@ -1,0 +1,67 @@
+.nextRaceContainer {
+  background-color: lightgray;
+  padding-bottom: 32px;
+}
+
+.nextRaceContainer > h3 {
+  margin-top: 0;
+}
+
+.currentRace,
+.nextRace {
+  margin: auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 24px
+}
+
+.currentRace > tbody > tr > td,
+.currentRace > thead > tr > th,
+.nextRace > tbody > tr > td,
+.nextRace > thead > tr > th {
+  border: 1px solid black;
+  padding: 4px 12px;
+}
+
+.currentRace > tbody > tr > td > select {
+  font-size: 20px;
+}
+
+.currentRace > thead > tr:nth-child(1) {
+  background-color: rgb(250, 206, 165);
+}
+
+.currentRace > tbody > tr:nth-child(1) {
+  background-color: rgb(255, 129, 129);
+}
+
+.currentRace > tbody > tr:nth-child(2) {
+  background-color: rgb(255, 255, 132);
+}
+
+.currentRace > tbody > tr:nth-child(3) {
+  background-color: rgb(149, 255, 149);
+}
+
+.currentRace > tbody > tr:nth-child(4) {
+  background-color: rgb(154, 206, 255);
+}
+
+.nextRace {
+  margin: auto;
+}
+
+.submit-race-results-button {
+  font-size: 24px;
+  display: block;
+  margin: auto;
+  margin-top: 32px;
+
+}
+
+.submit-race-results-error-message {
+  color: red;
+  text-align: center;
+  margin-top: 24px;
+  font-size: 24px;
+}

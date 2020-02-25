@@ -1,0 +1,35 @@
+.navContainer {
+    display: flex;
+    flex-direction: row ;
+    background-color: rgb(250, 206, 165);
+    padding-left: 15%;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0 4px;
+    padding: 8px 12px;
+    font-style: italic;
+}
+
+.navLink {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 4px 12px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.selectedLink {
+    font-weight: 500;
+    border-bottom: 2px black solid;
+    /* background-color: rgb(157, 216, 255); */
+    /* border-radius: 2px; */
+    /* border-radius: 1000px; */
+}
+
+.navLink:hover {
+    background-color: rgb(157, 216, 255);
+    /* border-radius: 1000px; */
+}

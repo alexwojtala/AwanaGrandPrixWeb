@@ -1,0 +1,30 @@
+th {
+    cursor: pointer;
+}
+
+.carsTable {
+    margin: auto;
+}
+
+.carsTable {
+    margin: 32px auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  
+.carsTable > thead > tr > th,
+.carsTable > tbody > tr > td {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.carsTable > tbody > tr > td > button {
+    font-size: 20px;
+}
+
+.carsTable > thead > tr > th,
+.carsTable > tbody > tr:nth-child(even){
+    background-color: rgb(221, 221, 221);
+}
