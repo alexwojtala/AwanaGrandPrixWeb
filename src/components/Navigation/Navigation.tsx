@@ -22,9 +22,7 @@ const Navigation = (props: any) => {
             <div className={'logo'} ><FontAwesomeIcon icon={faFlagCheckered} />&nbsp;&nbsp;&nbsp;AWANA Grand Prix</div>
             <div className={'navLink' + (props.location.pathname === '/check-in' ? ' selectedLink' : '')} onClick={() => { setRedirectToCheckin(true) }}>Check In</div>
             <div className={'navLink' + (props.location.pathname === '/cars' ? ' selectedLink' : '')} onClick={() => { setRedirectToCars(true) }}>Cars</div>
-            <div className={'navLink' + (props.location.pathname === '/races' ? ' selectedLink' : '')} onClick={() => { setRedirectToRaces(true) }}>Races</div>
-            <div className={'navLink' + (props.location.pathname === '/lineup' ? ' selectedLink' : '')} onClick={() => { setRedirectToLineup(true) }}>Lineup</div>
-            <div className={'navLink' + (props.location.pathname === '/leaderboard' ? ' selectedLink' : '')} onClick={() => { setRedirectToLeaderboard(true) }}>Leaderboard</div>
+            {/* cd className={'navLink' + (props.location.pathname === '/leaderboard' ? ' selectedLink' : '')} onClick={() => { setRedirectToLeaderboard(true) }}>Leaderboard</div> */}
         </div>
     )
 }

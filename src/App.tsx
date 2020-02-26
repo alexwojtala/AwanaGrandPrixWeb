@@ -30,20 +30,24 @@ const App = () => {
       { redirect && <Redirect to="/cars" push /> }
       {
         !redirect && 
-        <div>
-          <h3>Role:</h3>
-          <input type="radio" name="role" value="guest" onChange={(event) => { setRole(event.target.value) }} /> <label>Guest</label>
-          <input type="radio" name="role" value="volunteer" onChange={(event) => { setRole(event.target.value) }} /> <label>Volunteer</label>
-          <input type="radio" name="role" value="admin" onChange={(event) => { setRole(event.target.value) }} /> <label>Admin</label><br />
+        <>
+          <div className={'signInContainer'}>
+            <h1>Sign in to Awana Grand Prix</h1>
+            <h3 className={'roleLoginInputLabel'}>Role</h3>
+            <div className={'roleRadioButtons'}>
+              <input type="radio" name="role" value="guest" onChange={(event) => { setRole(event.target.value) }} /> <label>Guest</label>
+              <input type="radio" name="role" value="volunteer" onChange={(event) => { setRole(event.target.value) }} /> <label>Volunteer</label>
+              <input type="radio" name="role" value="admin" onChange={(event) => { setRole(event.target.value) }} /> <label>Admin</label><br />
+            </div>
+              
+            <label className={'roleLoginInputLabel'}>Password</label> <br />
+            <input className={'rolePasswordInput'}type="password" onChange={(event) => { setPassword(event.target.value) }} /><br />
 
-          <label>Password:</label> <input type="password" onChange={(event) => { setPassword(event.target.value) }} /><br />
-
-          <button onClick={(event: any) => {
-            SignIn(event);
-            console.log('here');
-            console.log('here');
-          }}>Submit</button>
-        </div>
+            <button onClick={(event: any) => {
+              SignIn(event);
+            }}>Login</button>
+          </div>
+        </>
       }
     </>
   );
