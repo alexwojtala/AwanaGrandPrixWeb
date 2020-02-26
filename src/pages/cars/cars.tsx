@@ -36,7 +36,6 @@ const Cars = () => {
     });
     updateCars()
   }, [])
-
   
 
   const updateCars = () => {

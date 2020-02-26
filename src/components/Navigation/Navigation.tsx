@@ -11,18 +11,22 @@ const Navigation = (props: any) => {
     const [redirectToRaces, setRedirectToRaces] = useState(false);
     const [redirectToLineup, setRedirectToLineup] = useState(false);
     const [redirectToLeaderboard, setRedirectToLeaderboard] = useState(false);
+    const [redirectToLogin, setRedirectToLogin] = useState(false);
 
     return (
-        <div className={'navContainer'}>
-            { redirectToCheckin && <Redirect to='/check-in' />}
-            { redirectToCars && <Redirect to='/cars' />}
-            { redirectToRaces && <Redirect to='/races' />}
-            { redirectToLineup && <Redirect to='/lineup' />}
-            { redirectToLeaderboard && <Redirect to='/leaderboard' />}
-            <div className={'logo'} ><FontAwesomeIcon icon={faFlagCheckered} />&nbsp;&nbsp;&nbsp;AWANA Grand Prix</div>
-            <div className={'navLink' + (props.location.pathname === '/check-in' ? ' selectedLink' : '')} onClick={() => { setRedirectToCheckin(true) }}>Check In</div>
-            <div className={'navLink' + (props.location.pathname === '/cars' ? ' selectedLink' : '')} onClick={() => { setRedirectToCars(true) }}>Cars</div>
-            {/* cd className={'navLink' + (props.location.pathname === '/leaderboard' ? ' selectedLink' : '')} onClick={() => { setRedirectToLeaderboard(true) }}>Leaderboard</div> */}
+        <div>
+            <div className={'navContainer'}>
+                { redirectToCheckin && <Redirect to='/check-in' />}
+                { redirectToCars && <Redirect to='/cars' />}
+                { redirectToRaces && <Redirect to='/races' />}
+                { redirectToLineup && <Redirect to='/lineup' />}
+                { redirectToLeaderboard && <Redirect to='/leaderboard' />}
+                { redirectToLogin && <Redirect to='/' />}
+                <div className={'logo'} ><FontAwesomeIcon icon={faFlagCheckered} />&nbsp;&nbsp;&nbsp;AWANA Grand Prix</div>
+                <div className={'navLink' + (props.location.pathname === '/check-in' ? ' selectedLink' : '')} onClick={() => { setRedirectToCheckin(true) }}>Check In</div>
+                <div className={'navLink' + (props.location.pathname === '/cars' ? ' selectedLink' : '')} onClick={() => { setRedirectToCars(true) }}>Cars</div>
+                <div className={'loginLink'} onClick={() => { setRedirectToLogin(true) }}>{localStorage.getItem('role') ? localStorage.getItem('role') : 'login'}</div>
+            </div>
         </div>
     )
 }

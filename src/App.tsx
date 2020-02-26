@@ -18,6 +18,7 @@ const App = () => {
       .then(function (response) {
         localStorage.setItem('authToken', response.data.token);
         axios.defaults.headers.common = { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` }
+        localStorage.setItem('role', response.data.user.role);
         setRedirect(true);
       })
       .catch(function (error) {

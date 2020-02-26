@@ -33,3 +33,21 @@
     background-color: rgb(157, 216, 255);
     /* border-radius: 1000px; */
 }
+
+.loginLink {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 4px 12px;
+    padding: 8px 12px;
+    margin-left: 65%;
+    cursor: pointer;
+    align-self: flex-end;
+    /* flex-basis: 65%; */
+    text-align: right;
+    text-transform: capitalize;
+}
+
+.loginLink:hover {
+    background-color: rgb(157, 216, 255);
+    /* border-radius: 1000px; */
+}
