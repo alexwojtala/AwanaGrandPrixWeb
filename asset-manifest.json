@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/AwanaGrandPrixWeb/static/css/main.9f0a5fec.chunk.css",
-    "main.js": "/AwanaGrandPrixWeb/static/js/main.78e33600.chunk.js",
-    "main.js.map": "/AwanaGrandPrixWeb/static/js/main.78e33600.chunk.js.map",
+    "main.css": "/AwanaGrandPrixWeb/static/css/main.c83d6ecb.chunk.css",
+    "main.js": "/AwanaGrandPrixWeb/static/js/main.8cd3d64a.chunk.js",
+    "main.js.map": "/AwanaGrandPrixWeb/static/js/main.8cd3d64a.chunk.js.map",
     "runtime-main.js": "/AwanaGrandPrixWeb/static/js/runtime-main.3ca6abd2.js",
     "runtime-main.js.map": "/AwanaGrandPrixWeb/static/js/runtime-main.3ca6abd2.js.map",
     "static/js/2.1bdcc914.chunk.js": "/AwanaGrandPrixWeb/static/js/2.1bdcc914.chunk.js",
     "static/js/2.1bdcc914.chunk.js.map": "/AwanaGrandPrixWeb/static/js/2.1bdcc914.chunk.js.map",
     "index.html": "/AwanaGrandPrixWeb/index.html",
-    "precache-manifest.324e3725b9dd0524902a829d856b4d05.js": "/AwanaGrandPrixWeb/precache-manifest.324e3725b9dd0524902a829d856b4d05.js",
+    "precache-manifest.ab2f848c68d8524fc306ea851c2fd121.js": "/AwanaGrandPrixWeb/precache-manifest.ab2f848c68d8524fc306ea851c2fd121.js",
     "service-worker.js": "/AwanaGrandPrixWeb/service-worker.js",
-    "static/css/main.9f0a5fec.chunk.css.map": "/AwanaGrandPrixWeb/static/css/main.9f0a5fec.chunk.css.map",
+    "static/css/main.c83d6ecb.chunk.css.map": "/AwanaGrandPrixWeb/static/css/main.c83d6ecb.chunk.css.map",
     "static/js/2.1bdcc914.chunk.js.LICENSE.txt": "/AwanaGrandPrixWeb/static/js/2.1bdcc914.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3ca6abd2.js",
     "static/js/2.1bdcc914.chunk.js",
-    "static/css/main.9f0a5fec.chunk.css",
-    "static/js/main.78e33600.chunk.js"
+    "static/css/main.c83d6ecb.chunk.css",
+    "static/js/main.8cd3d64a.chunk.js"
   ]
 }
