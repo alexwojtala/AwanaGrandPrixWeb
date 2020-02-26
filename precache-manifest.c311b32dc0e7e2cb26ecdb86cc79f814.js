@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f239e8f332457dacbdefce8b52f249e2",
+    "revision": "6122a0213916c5574cdb306c61424470",
     "url": "/AwanaGrandPrixWeb/index.html"
   },
   {
-    "revision": "0deca1e8570f41296751",
-    "url": "/AwanaGrandPrixWeb/static/css/main.80c55252.chunk.css"
+    "revision": "01a8e758077aab733a6d",
+    "url": "/AwanaGrandPrixWeb/static/css/main.bfdc8da4.chunk.css"
   },
   {
     "revision": "266a0a0c8c608b382b16",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/AwanaGrandPrixWeb/static/js/2.1bdcc914.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0deca1e8570f41296751",
-    "url": "/AwanaGrandPrixWeb/static/js/main.f62649e7.chunk.js"
+    "revision": "01a8e758077aab733a6d",
+    "url": "/AwanaGrandPrixWeb/static/js/main.8b5f7ac8.chunk.js"
   },
   {
     "revision": "9a84d4525d278d90b3b4",
