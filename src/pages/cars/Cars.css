@@ -28,3 +28,12 @@ th {
 .carsTable > tbody > tr:nth-child(even){
     background-color: rgb(221, 221, 221);
 }
+
+.editCarInput {
+    margin-bottom: 16px;
+}
+
+.editCarButton,
+.editCarCancel {
+    font-size: 18px;
+}

@@ -23,9 +23,9 @@ const Navigation = (props: any) => {
                 { redirectToLeaderboard && <Redirect to='/leaderboard' />}
                 { redirectToLogin && <Redirect to='/' />}
                 <div className={'logo'} ><FontAwesomeIcon icon={faFlagCheckered} />&nbsp;&nbsp;&nbsp;AWANA Grand Prix</div>
+                <div className={'loginLink'} onClick={() => { setRedirectToLogin(true) }}>{localStorage.getItem('role') ? localStorage.getItem('role') : 'login'}</div>
                 <div className={'navLink' + (props.location.pathname === '/check-in' ? ' selectedLink' : '')} onClick={() => { setRedirectToCheckin(true) }}>Check In</div>
                 <div className={'navLink' + (props.location.pathname === '/cars' ? ' selectedLink' : '')} onClick={() => { setRedirectToCars(true) }}>Cars</div>
-                <div className={'loginLink'} onClick={() => { setRedirectToLogin(true) }}>{localStorage.getItem('role') ? localStorage.getItem('role') : 'login'}</div>
             </div>
         </div>
     )
