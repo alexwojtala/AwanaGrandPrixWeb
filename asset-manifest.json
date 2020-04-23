@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/AwanaGrandPrixWeb/static/css/main.c83d6ecb.chunk.css",
-    "main.js": "/AwanaGrandPrixWeb/static/js/main.ffe57bc4.chunk.js",
-    "main.js.map": "/AwanaGrandPrixWeb/static/js/main.ffe57bc4.chunk.js.map",
+    "main.js": "/AwanaGrandPrixWeb/static/js/main.9636c222.chunk.js",
+    "main.js.map": "/AwanaGrandPrixWeb/static/js/main.9636c222.chunk.js.map",
     "runtime-main.js": "/AwanaGrandPrixWeb/static/js/runtime-main.3ca6abd2.js",
     "runtime-main.js.map": "/AwanaGrandPrixWeb/static/js/runtime-main.3ca6abd2.js.map",
     "static/js/2.1bdcc914.chunk.js": "/AwanaGrandPrixWeb/static/js/2.1bdcc914.chunk.js",
     "static/js/2.1bdcc914.chunk.js.map": "/AwanaGrandPrixWeb/static/js/2.1bdcc914.chunk.js.map",
     "index.html": "/AwanaGrandPrixWeb/index.html",
-    "precache-manifest.2234ce616039e4783d979d567d1a4214.js": "/AwanaGrandPrixWeb/precache-manifest.2234ce616039e4783d979d567d1a4214.js",
+    "precache-manifest.16d8923b3ecbfd9e0dd1f350764089d3.js": "/AwanaGrandPrixWeb/precache-manifest.16d8923b3ecbfd9e0dd1f350764089d3.js",
     "service-worker.js": "/AwanaGrandPrixWeb/service-worker.js",
     "static/css/main.c83d6ecb.chunk.css.map": "/AwanaGrandPrixWeb/static/css/main.c83d6ecb.chunk.css.map",
     "static/js/2.1bdcc914.chunk.js.LICENSE.txt": "/AwanaGrandPrixWeb/static/js/2.1bdcc914.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3ca6abd2.js",
     "static/js/2.1bdcc914.chunk.js",
     "static/css/main.c83d6ecb.chunk.css",
-    "static/js/main.ffe57bc4.chunk.js"
+    "static/js/main.9636c222.chunk.js"
   ]
 }
