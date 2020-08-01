@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Select from 'react-select'
 import axios from 'axios';
 import Navigation from '../../components/Navigation/Navigation';
 import './LineupPage.css'
@@ -33,6 +34,13 @@ const Lineup = () => {
       });
   }, [])
 
+  const options = [
+    { value: 1, label: '1st Place' },
+    { value: 2, label: '2nd Place' },
+    { value: 3, label: '3rd Place' },
+    { value: 4, label: '4th Place' }
+  ]
+
   const submitRaceResults = () => {
     if (places.includes(1) && places.includes(2) && places.includes(3) && places.includes(4)) {
       axios.post(`/race-groups/${raceGroup}/races/${currentRace.id}/result`, {
@@ -48,6 +56,7 @@ const Lineup = () => {
           getCurrentRace();
           getNextRace();
           setIsSubmittedResultsValid(true);
+          window.location.reload();
         })
         .catch(function (error) {
           console.log(error);
@@ -75,6 +84,13 @@ const Lineup = () => {
         .catch(function (error) {
           console.log(error);
         });
+  }
+
+  const customStyles = {
+    control: (provided: any) => ({
+      ...provided,
+      width: 200,
+    })
   }
 
   return (
@@ -113,23 +129,21 @@ const Lineup = () => {
           </tr>
         </thead>
         <tbody>
-
           {currentRace != undefined && currentRace.lanes_by_group_id.map((lane: number, i: number) => {
             return (
               <tr>
                 <td>{lane}</td>
                 <td>{currentRace.lanes_by_clubber[i]}</td>
                 <td>
-                  <select onChange={(event) => {
-                    places[i] = Number(event.target.value);
-                    console.log(places);
-                  }}>
-                    <option selected disabled>Choose here</option>
-                    <option value={1}>1st Place</option>
-                    <option value={2}>2nd Place</option>
-                    <option value={3}>3rd Place</option>
-                    <option value={4}>4th Place</option>
-                  </select>
+                  <Select 
+                    options={options} 
+                    isSearchable={true}
+                    autosize={true}
+                    onChange={(event: any) => {
+                      places[i] = Number(event.value);
+                    }}
+                    styles={customStyles}
+                  />
                 </td>
               </tr>
             );

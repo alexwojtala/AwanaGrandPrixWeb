@@ -14,7 +14,6 @@ import axios from 'axios'
 axios.defaults.baseURL = 'https://awana-grand-prix-api.herokuapp.com/';
 axios.defaults.headers.common = { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` }
 
-
 const routing = (
   <Router basename={process.env.PUBLIC_URL}>
     <div>
