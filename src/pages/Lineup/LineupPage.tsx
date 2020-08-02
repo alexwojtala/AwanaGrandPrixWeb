@@ -3,6 +3,7 @@ import Select from 'react-select'
 import axios from 'axios';
 import Navigation from '../../components/Navigation/Navigation';
 import './LineupPage.css'
+import Table from '../../components/Table/Table';
 
 axios.defaults.headers.common = { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` }
 
@@ -98,7 +99,11 @@ const Lineup = () => {
       <Navigation></Navigation>
       <div className={'nextRaceContainer'}>
         <h3>Up Next</h3>
-        <table className={'nextRace'}>
+        {nextRace !== undefined && <Table 
+          headers={['Group Id', 'Name']} 
+          content={nextRace.lanes_by_group_id.map((lane: number, i: number) => [lane, nextRace.lanes_by_clubber[i]])}
+        />}
+        {/* <table className={'nextRace'}>
           <thead>
             <tr>
               <th>Group Id</th>
@@ -116,7 +121,7 @@ const Lineup = () => {
               )
             })}
           </tbody>
-        </table>
+        </table> */}
       </div>
 
       <h3>Current Race ({ currentRace != undefined && raceCount != undefined && `${currentRace.id} / ${raceCount}`})</h3>
