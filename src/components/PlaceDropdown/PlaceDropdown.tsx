@@ -22,8 +22,8 @@ const PlaceDropdown = ({onChangeCallback}: PlaceDropdownProps) => {
     }
 
     return (
-        <Select 
-            options={options} 
+        <Select
+            options={options}
             isSearchable={true}
             autosize={true}
             onChange={(event: any) => onChangeCallback(event)}

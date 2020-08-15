@@ -31,7 +31,7 @@ const App = () => {
     <>
       { redirect && <Redirect to="/cars" push /> }
       {
-        !redirect && 
+        !redirect &&
         <>
           <div className={'signInContainer'}>
             <h1>Sign in to Awana Grand Prix</h1>

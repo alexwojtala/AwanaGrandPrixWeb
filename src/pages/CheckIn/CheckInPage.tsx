@@ -78,7 +78,7 @@ const CheckInPage = () => {
                     </div>
                     <h2>division</h2>
                     <div>
-                        {club !== 'Other' && 
+                        {club !== 'Other' &&
                             <label>
                                 <input type="radio" name="division" value="Normal" onChange={(event) => setMeetsRequirements(true)}/>
                                 Normal
