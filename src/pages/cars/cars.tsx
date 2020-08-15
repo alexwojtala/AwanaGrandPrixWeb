@@ -96,6 +96,59 @@ const Cars = () => {
         console.log(error);
       });
   }
+
+  const sortByGroupId = (car1: any, car2: any) => {
+    return car1.sort_group_id > car2.sort_group_id ? 1 : -1;
+  }
+
+  const sortByClubber = (car1: any, car2: any) => {
+    return car1.clubber > car2.clubber ? 1 : -1;
+  }
+
+  const sortByClub = (car1: any, car2: any) => {
+    return car1.club > car2.club ? 1 : -1;
+  }
+
+  const sortByDivision = (car1: any, car2: any) => {
+    return car1.division > car2.division ? 1 : -1;
+  }
+
+  const carRow = (car: any, i: number) => {
+    return(
+      <tr key={i}>
+        <td>{car.group_id}</td>
+        <td>{car.clubber}</td>
+        <td>{car.club}</td>
+        <td>{car.division}</td>
+        <td>
+            { !isRaceGroupStared &&
+              <button onClick={() => {
+                setCurrentCarId(car.id);
+                setCurrentClub(car.club);
+                setCurrentClubber(car.clubber);
+                setCurrentGroupId(car.group_id);
+
+                setTab(TabState.EDIT_CAR);
+              }}>Edit</button>
+            }
+            { isRaceGroupStared &&
+              <button disabled>Edit</button>
+            }
+        </td>
+        <td>
+            { !isRaceGroupStared &&
+              <button onClick={() => {
+              deleteCar(car.id);
+              }}>Delete</button>
+            }
+            { isRaceGroupStared &&
+              <button disabled>Delete</button>
+            }
+        </td>
+      </tr>
+    )
+  }
+
   switch(tab) {
     case TabState.EDIT_CAR:
       return (
@@ -137,189 +190,16 @@ const Cars = () => {
             </thead>
             <tbody>
 
-            {sort === Sort.NONE && cars && cars.map((car: any, i: number) => {
-                  return (
-                    <tr key={i}>
-                      <td>{car.group_id}</td>
-                      <td>{car.clubber}</td>
-                      <td>{car.club}</td>
-                      <td>{car.division}</td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                              setCurrentCarId(car.id);
-                              setCurrentClub(car.club);
-                              setCurrentClubber(car.clubber);
-                              setCurrentGroupId(car.group_id);
-              
-                              setTab(TabState.EDIT_CAR);
-                            }}>Edit</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Edit</button>
-                          }
-                      </td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                            deleteCar(car.id);
-                            }}>Delete</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Delete</button>
-                          }
-                      </td>
-                    </tr>
-                  )
-                })}
-              {sort === Sort.GROUPID && cars && cars.sort((car1: any, car2: any) => {
-                  return car1.sort_group_id > car2.sort_group_id ? 1 : -1;
-                }).map((car: any, i: number) => {
-                  return (
-                    <tr key={i}>
-                      <td>{car.group_id}</td>
-                      <td>{car.clubber}</td>
-                      <td>{car.club}</td>
-                      <td>{car.division}</td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                              setCurrentCarId(car.id);
-                              setCurrentClub(car.club);
-                              setCurrentClubber(car.clubber);
-                              setCurrentGroupId(car.group_id);
-              
-                              setTab(TabState.EDIT_CAR);
-                            }}>Edit</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Edit</button>
-                          }
-                      </td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                            deleteCar(car.id);
-                            }}>Delete</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Delete</button>
-                          }
-                      </td>
-                    </tr>
-                  )
-                })}
-                {sort === Sort.CLUBBER && cars && cars.sort((car1: any, car2: any) => {
-                  return car1.clubber > car2.clubber ? 1 : -1;
-                }).map((car: any, i: number) => {
-                  return (
-                    <tr key={i}>
-                      <td>{car.group_id}</td>
-                      <td>{car.clubber}</td>
-                      <td>{car.club}</td>
-                      <td>{car.division}</td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                              setCurrentCarId(car.id);
-                              setCurrentClub(car.club);
-                              setCurrentClubber(car.clubber);
-                              setCurrentGroupId(car.group_id);
-              
-                              setTab(TabState.EDIT_CAR);
-                            }}>Edit</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Edit</button>
-                          }
-                      </td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                            deleteCar(car.id);
-                            }}>Delete</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Delete</button>
-                          }
-                      </td>
-                    </tr>
-                  )
-                })}
-                {sort === Sort.CLUB && cars && cars.sort((car1: any, car2: any) => {
-                  return car1.club > car2.club ? 1 : -1;
-                }).map((car: any, i: number) => {
-                  return (
-                    <tr key={i}>
-                      <td>{car.group_id}</td>
-                      <td>{car.clubber}</td>
-                      <td>{car.club}</td>
-                      <td>{car.division}</td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                              setCurrentCarId(car.id);
-                              setCurrentClub(car.club);
-                              setCurrentClubber(car.clubber);
-                              setCurrentGroupId(car.group_id);
-              
-                              setTab(TabState.EDIT_CAR);
-                            }}>Edit</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Edit</button>
-                          }
-                      </td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                            deleteCar(car.id);
-                            }}>Delete</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Delete</button>
-                          }
-                      </td>
-                    </tr>
-                  )
-                })}
-                {sort === Sort.DIVISION && cars && cars.sort((car1: any, car2: any) => {
-                  return car1.division > car2.division ? 1 : -1;
-                }).map((car: any, i: number) => {
-                  return (
-                    <tr key={i}>
-                      <td>{car.group_id}</td>
-                      <td>{car.clubber}</td>
-                      <td>{car.club}</td>
-                      <td>{car.division}</td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                              setCurrentCarId(car.id);
-                              setCurrentClub(car.club);
-                              setCurrentClubber(car.clubber);
-                              setCurrentGroupId(car.group_id);
-              
-                              setTab(TabState.EDIT_CAR);
-                            }}>Edit</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Edit</button>
-                          }
-                      </td>
-                      <td>
-                          { !isRaceGroupStared &&
-                            <button onClick={() => {
-                            deleteCar(car.id);
-                            }}>Delete</button>
-                          }
-                          { isRaceGroupStared &&
-                            <button disabled>Delete</button>
-                          }
-                      </td>
-                    </tr>
-                  )
-                })}
+              {sort === Sort.NONE && cars && cars.map(carRow)}
+
+              {sort === Sort.GROUPID && cars && cars.sort(sortByGroupId).map(carRow)}
+
+              {sort === Sort.CLUBBER && cars && cars.sort(sortByClubber).map(carRow)}
+
+              {sort === Sort.CLUB && cars && cars.sort(sortByClub).map(carRow)}
+
+              {sort === Sort.DIVISION && cars && cars.sort(sortByDivision).map(carRow)}
+
             </tbody>
           </table>
         </>
