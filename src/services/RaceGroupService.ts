@@ -47,7 +47,7 @@ class RaceGroupService {
    }
 
    static postRaceResults(raceGroup: number, raceResult: RaceResult): Promise<AxiosResponse> {
-        return axios.post(`/race-groups/${raceGroup}/races/${raceResult.race_id}/result`, 
+        return axios.post(`/race-groups/${raceGroup}/races/${raceResult.race_id}/result`,
             {
                 result: raceResult
             }
