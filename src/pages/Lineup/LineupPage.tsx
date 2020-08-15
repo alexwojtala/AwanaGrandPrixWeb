@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import Select from 'react-select'
 import axios from 'axios';
 import Navigation from '../../components/Navigation/Navigation';
 import './LineupPage.css'
 import Table from '../../components/Table/Table';
 import RaceGroupService, {Race} from '../../services/RaceGroupService';
+import PlaceDropdown from '../../components/PlaceDropdown/PlaceDropdown';
 
 axios.defaults.headers.common = { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` }
 
@@ -40,13 +40,6 @@ const Lineup = () => {
     })
   }, [])
 
-  const options = [
-    { value: 1, label: '1st Place' },
-    { value: 2, label: '2nd Place' },
-    { value: 3, label: '3rd Place' },
-    { value: 4, label: '4th Place' }
-  ]
-
   const submitRaceResults = () => {
     if (currentRace && places.includes(1) && places.includes(2) && places.includes(3) && places.includes(4)) {
       const raceResult = { race_id: currentRace.id, places: places }
@@ -62,23 +55,6 @@ const Lineup = () => {
     } else {
       setIsSubmittedResultsValid(false);
     }
-  }
-
-  const placeDropdown = (laneNumber: number) => <Select 
-    options={options} 
-    isSearchable={true}
-    autosize={true}
-    onChange={(event: any) => {
-      places[laneNumber] = Number(event.value);
-    }}
-    styles={customStyles}
-  />
-
-  const customStyles = {
-    control: (provided: any) => ({
-      ...provided,
-      width: 200,
-    })
   }
 
   return (
@@ -98,7 +74,7 @@ const Lineup = () => {
       {currentRace !== undefined && <Table 
           className={'currentRace'}
           headers={['Group Id', 'Name', 'Place']} 
-          content={currentRace.lanes_by_group_id.map((lane: string, i: number) => [lane, currentRace.lanes_by_clubber[i], placeDropdown(i)])}
+          content={currentRace.lanes_by_group_id.map((lane: string, i: number) => [lane, currentRace.lanes_by_clubber[i], <PlaceDropdown onChangeCallback={(event: any) => {places[i] = Number(event.value);}}/>])}
         />}
       { raceGroup && <button className={'submit-race-results-button'} onClick={submitRaceResults}>submit results</button>}
       { !isSubmittedResultsValid && <div className={'submit-race-results-error-message'}>Must have all places (1st through 4th) filled out</div>}
