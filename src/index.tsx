@@ -5,7 +5,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import CheckInPage from './pages/CheckIn/CheckInPage';
-import Cars from './pages/cars/cars';
+import Cars from './pages/Cars/cars';
 import RacesPage from './pages/Races/RacesPage';
 import LineupPage from './pages/Lineup/LineupPage';
 import LeaderboardPage from './pages/Leaderboard/LeaderboardPage';

@@ -3,7 +3,7 @@ import React from 'react';
 interface TableProps {
     className: string,
     headers: string[],
-    content: string[][]
+    content: (string | JSX.Element)[][]
 }
 
 const Table = ({className, headers, content}: TableProps) => {
@@ -21,7 +21,6 @@ const Table = ({className, headers, content}: TableProps) => {
                         <tr>
                         {
                             contentElements.map(contentElement => {
-                                console.log(contentElement)
                                 return <td>{contentElement}</td>
                             })
                         }

@@ -4,25 +4,20 @@ import axios from 'axios';
 import Navigation from '../../components/Navigation/Navigation';
 import './LineupPage.css'
 import Table from '../../components/Table/Table';
+import RaceGroupService, {Race} from '../../services/RaceGroupService';
 
 axios.defaults.headers.common = { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` }
 
 const Lineup = () => {
-  const [currentRace, setCurrentRace] = useState();
+  const [currentRace, setCurrentRace] = useState<Race>();
   const [nextRace, setNextRace] = useState();
-  const [raceGroup, setRaceGroup] = useState();
+  const [raceGroup, setRaceGroup] = useState<number>(-1);
   const [places, setPlaces] = useState([0,0,0,0]);
   const [raceCount, setRaceCount] = useState(0);
   const [isSubmittedResultsValid, setIsSubmittedResultsValid] = useState(true)
 
   const getCurrentRace = useCallback(() => {
-    axios.get(`/race-groups/${raceGroup}/races/current`, {})
-        .then((response) => {
-          setCurrentRace(response.data)
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    RaceGroupService.getCurrentRace(raceGroup).then(setCurrentRace)
   }, [raceGroup])
 
   const getNextRace = useCallback(() => {
@@ -36,7 +31,7 @@ const Lineup = () => {
   }, [raceGroup])
 
   useEffect(() => {
-    if (raceGroup) {
+    if (raceGroup !== -1) {
       getCurrentRace();
       getNextRace();
     }
@@ -63,7 +58,7 @@ const Lineup = () => {
   ]
 
   const submitRaceResults = () => {
-    if (places.includes(1) && places.includes(2) && places.includes(3) && places.includes(4)) {
+    if (currentRace && places.includes(1) && places.includes(2) && places.includes(3) && places.includes(4)) {
       axios.post(`/race-groups/${raceGroup}/races/${currentRace.id}/result`, {
         result: {
           race_id: currentRace.id,
@@ -121,7 +116,7 @@ const Lineup = () => {
       {currentRace !== undefined && <Table 
           className={'currentRace'}
           headers={['Group Id', 'Name', 'Place']} 
-          content={currentRace.lanes_by_group_id.map((lane: number, i: number) => [lane, currentRace.lanes_by_clubber[i], placeDropdown(i)])}
+          content={currentRace.lanes_by_group_id.map((lane: string, i: number) => [lane, currentRace.lanes_by_clubber[i], placeDropdown(i)])}
         />}
       { raceGroup && <button className={'submit-race-results-button'} onClick={submitRaceResults}>submit results</button>}
       { !isSubmittedResultsValid && <div className={'submit-race-results-error-message'}>Must have all places (1st through 4th) filled out</div>}
