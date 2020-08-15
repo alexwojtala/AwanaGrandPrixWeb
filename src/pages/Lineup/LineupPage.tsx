@@ -10,7 +10,7 @@ axios.defaults.headers.common = { 'Authorization': `Bearer ${localStorage.getIte
 
 const Lineup = () => {
   const [currentRace, setCurrentRace] = useState<Race>();
-  const [nextRace, setNextRace] = useState();
+  const [nextRace, setNextRace] = useState<Race>();
   const [raceGroup, setRaceGroup] = useState<number>(-1);
   const [places, setPlaces] = useState([0,0,0,0]);
   const [raceCount, setRaceCount] = useState(0);
@@ -21,13 +21,7 @@ const Lineup = () => {
   }, [raceGroup])
 
   const getNextRace = useCallback(() => {
-    axios.get(`/race-groups/${raceGroup}/races/next`, {})
-        .then(function (response) {
-          setNextRace(response.data)
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    RaceGroupService.getNextRace(raceGroup).then(setNextRace)
   }, [raceGroup])
 
   useEffect(() => {
@@ -107,7 +101,7 @@ const Lineup = () => {
         {nextRace !== undefined && <Table 
           className={'nextRace'}
           headers={['Group Id', 'Name']} 
-          content={nextRace.lanes_by_group_id.map((lane: number, i: number) => [lane, nextRace.lanes_by_clubber[i]])}
+          content={nextRace.lanes_by_group_id.map((lane: string, i: number) => [lane, nextRace.lanes_by_clubber[i]])}
         />}
         
       </div>
