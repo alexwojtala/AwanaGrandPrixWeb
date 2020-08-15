@@ -13,7 +13,6 @@ enum TabState {
 
 const Races = () => {
   const [races, setRaces] = useState();
-  const [isGroupStarted, setIsGroupStarted] = useState();
   const [tab, setTab] = useState(TabState.RACE_NOT_STARTED);
 
   useEffect(() => {
@@ -50,7 +49,7 @@ const Races = () => {
               </thead>
               <tbody>
       
-                {races != undefined && races.map((race: any, i: number) => {
+                {races !== undefined && races.map((race: any, i: number) => {
                   return (
                     <tr key={i}>
                       <td>{race.id}</td>

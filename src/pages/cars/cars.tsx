@@ -31,7 +31,6 @@ const Cars = () => {
   const [currentCarId, setCurrentCarId] = useState();
   const [currentClub, setCurrentClub] = useState();
   const [currentClubber, setCurrentClubber] = useState();
-  const [currentMeetsRequirements, setCurrentMeetsRequirements] = useState();
   const [currentGroupId, setCurrentGroupId] = useState();
 
   useEffect(() => {
@@ -152,7 +151,6 @@ const Cars = () => {
                               setCurrentClub(car.club);
                               setCurrentClubber(car.clubber);
                               setCurrentGroupId(car.group_id);
-                              setCurrentMeetsRequirements(car.meets_requirements);
               
                               setTab(TabState.EDIT_CAR);
                             }}>Edit</button>
@@ -190,7 +188,6 @@ const Cars = () => {
                               setCurrentClub(car.club);
                               setCurrentClubber(car.clubber);
                               setCurrentGroupId(car.group_id);
-                              setCurrentMeetsRequirements(car.meets_requirements);
               
                               setTab(TabState.EDIT_CAR);
                             }}>Edit</button>
@@ -228,7 +225,6 @@ const Cars = () => {
                               setCurrentClub(car.club);
                               setCurrentClubber(car.clubber);
                               setCurrentGroupId(car.group_id);
-                              setCurrentMeetsRequirements(car.meets_requirements);
               
                               setTab(TabState.EDIT_CAR);
                             }}>Edit</button>
@@ -266,7 +262,6 @@ const Cars = () => {
                               setCurrentClub(car.club);
                               setCurrentClubber(car.clubber);
                               setCurrentGroupId(car.group_id);
-                              setCurrentMeetsRequirements(car.meets_requirements);
               
                               setTab(TabState.EDIT_CAR);
                             }}>Edit</button>
@@ -304,7 +299,6 @@ const Cars = () => {
                               setCurrentClub(car.club);
                               setCurrentClubber(car.clubber);
                               setCurrentGroupId(car.group_id);
-                              setCurrentMeetsRequirements(car.meets_requirements);
               
                               setTab(TabState.EDIT_CAR);
                             }}>Edit</button>

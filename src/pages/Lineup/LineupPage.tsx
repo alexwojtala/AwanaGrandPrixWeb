@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Select from 'react-select'
 import axios from 'axios';
 import Navigation from '../../components/Navigation/Navigation';
@@ -15,12 +15,32 @@ const Lineup = () => {
   const [raceCount, setRaceCount] = useState(0);
   const [isSubmittedResultsValid, setIsSubmittedResultsValid] = useState(true)
 
+  const getCurrentRace = useCallback(() => {
+    axios.get(`/race-groups/${raceGroup}/races/current`, {})
+        .then((response) => {
+          setCurrentRace(response.data)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  }, [raceGroup])
+
+  const getNextRace = useCallback(() => {
+    axios.get(`/race-groups/${raceGroup}/races/next`, {})
+        .then(function (response) {
+          setNextRace(response.data)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  }, [raceGroup])
+
   useEffect(() => {
     if (raceGroup) {
       getCurrentRace();
       getNextRace();
     }
-  }, [raceGroup])
+  }, [raceGroup, getCurrentRace, getNextRace])
 
   useEffect(() => {
     axios.get('/race-groups/current', {})
@@ -67,26 +87,6 @@ const Lineup = () => {
     }
   }
 
-  const getCurrentRace = () => {
-    axios.get(`/race-groups/${raceGroup}/races/current`, {})
-        .then((response) => {
-          setCurrentRace(response.data)
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-  }
-
-  const getNextRace = () => {
-    axios.get(`/race-groups/${raceGroup}/races/next`, {})
-        .then(function (response) {
-          setNextRace(response.data)
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-  }
-
   const placeDropdown = (laneNumber: number) => <Select 
     options={options} 
     isSearchable={true}
@@ -117,7 +117,7 @@ const Lineup = () => {
         
       </div>
 
-      <h3>Current Race ({ currentRace != undefined && raceCount != undefined && `${currentRace.id} / ${raceCount}`})</h3>
+      <h3>Current Race ({ currentRace !== undefined && raceCount !== undefined && `${currentRace.id} / ${raceCount}`})</h3>
       {currentRace !== undefined && <Table 
           className={'currentRace'}
           headers={['Group Id', 'Name', 'Place']} 

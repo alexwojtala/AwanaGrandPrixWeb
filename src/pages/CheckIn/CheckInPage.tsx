@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Navigation from '../../components/Navigation/Navigation'
 import './CheckInPage.css'
 import axios from 'axios';
