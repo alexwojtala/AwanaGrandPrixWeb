@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navigation from '../../components/Navigation/Navigation';
 import './LeaderboardPage.css'
+import Leaderboard from '../../components/Leaderboard/Leaderboard';
 
 axios.defaults.headers.common = { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` }
 
@@ -24,55 +25,9 @@ const LeaderboardPage = () => {
     return (
         <>
             <Navigation></Navigation>
-            <div className={'leaderboardContainer'}>
-                <div className={'regularLeaderboardContainer'}>
-                    <h1>Regular</h1>
-                    <table className={'leaderboardTable'}>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>NAME</th>
-                                <th>POINTS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            { regulars !== undefined && regulars.map((regular: any, i: number) => {
-                                return (
-                                    <tr key={'regular' + i}>
-                                        <td>{regular.group_id}</td>
-                                        <td>{regular.clubber}</td>
-                                        <td>{regular.points}</td>
-                                    </tr>
-                                )
-                            })
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                <div className={'outlawLeaderboardContainer'}>
-                    <h1>Outlaw</h1>
-                    <table className={'leaderboardTable'}>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>NAME</th>
-                                <th>POINTS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            { outlaws !== undefined && outlaws.map((outlaw: any, i: number) => {
-                                return (
-                                    <tr key={'outlaw' + i}>
-                                        <td>{outlaw.group_id}</td>
-                                        <td>{outlaw.clubber}</td>
-                                        <td>{outlaw.points}</td>
-                                    </tr>
-                                )
-                            })
-                            }
-                        </tbody>
-                    </table>
-                </div>
+            <div className={'leaderboardsContainer'}>
+                <Leaderboard title={'Regular'} leaders={regulars} />
+                <Leaderboard title={'Outlaw'} leaders={outlaws} />
             </div>
         </>
     )
