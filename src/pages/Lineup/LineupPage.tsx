@@ -62,18 +62,18 @@ const Lineup = () => {
       <Navigation></Navigation>
       <div className={'nextRaceContainer'}>
         <h3>Up Next</h3>
-        {nextRace !== undefined && <Table 
+        {nextRace !== undefined && <Table
           className={'nextRace'}
-          headers={['Group Id', 'Name']} 
+          headers={['Group Id', 'Name']}
           content={nextRace.lanes_by_group_id.map((lane: string, i: number) => [lane, nextRace.lanes_by_clubber[i]])}
         />}
         
       </div>
 
       <h3>Current Race ({ currentRace !== undefined && raceCount !== undefined && `${currentRace.id} / ${raceCount}`})</h3>
-      {currentRace !== undefined && <Table 
+      {currentRace !== undefined && <Table
           className={'currentRace'}
-          headers={['Group Id', 'Name', 'Place']} 
+          headers={['Group Id', 'Name', 'Place']}
           content={currentRace.lanes_by_group_id.map((lane: string, i: number) => [lane, currentRace.lanes_by_clubber[i], <PlaceDropdown onChangeCallback={(event: any) => {places[i] = Number(event.value);}}/>])}
         />}
       { raceGroup && <button className={'submit-race-results-button'} onClick={submitRaceResults}>submit results</button>}

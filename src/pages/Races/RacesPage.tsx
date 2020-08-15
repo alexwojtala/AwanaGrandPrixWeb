@@ -24,7 +24,7 @@ const Races = () => {
           .then(response => {
             setRaces(response.data);
           })
-        } 
+        }
       })
       .catch(function (error) {
         console.log(error);
