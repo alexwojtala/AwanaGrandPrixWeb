@@ -32,16 +32,12 @@ const Lineup = () => {
   }, [raceGroup, getCurrentRace, getNextRace])
 
   useEffect(() => {
-    axios.get('/race-groups/current', {})
-      .then(function (response) {
-        if (response.data.id) {
-          setRaceCount(response.data.race_count);
-          setRaceGroup(response.data.id);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    RaceGroupService.getCurrentRaceGroup().then((raceGroup) => {
+      if (raceGroup.id) {
+        setRaceCount(raceGroup.race_count);
+        setRaceGroup(raceGroup.id);
+      }
+    })
   }, [])
 
   const options = [
@@ -53,24 +49,16 @@ const Lineup = () => {
 
   const submitRaceResults = () => {
     if (currentRace && places.includes(1) && places.includes(2) && places.includes(3) && places.includes(4)) {
-      axios.post(`/race-groups/${raceGroup}/races/${currentRace.id}/result`, {
-        result: {
-          race_id: currentRace.id,
-          places: places
-        }
-      }
-      )
-        .then(function (response) {
-          console.log(response);
-          setPlaces([0, 0, 0, 0])
-          getCurrentRace();
-          getNextRace();
-          setIsSubmittedResultsValid(true);
-          window.location.reload();
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      const raceResult = { race_id: currentRace.id, places: places }
+
+      RaceGroupService.postRaceResults(raceGroup, raceResult)
+      .then(() => {
+        setPlaces([0, 0, 0, 0])
+        getCurrentRace();
+        getNextRace();
+        setIsSubmittedResultsValid(true);
+        window.location.reload();
+      })
     } else {
       setIsSubmittedResultsValid(false);
     }
