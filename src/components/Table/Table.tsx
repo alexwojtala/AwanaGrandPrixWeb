@@ -1,13 +1,14 @@
 import React from 'react';
 
 interface TableProps {
+    className: string,
     headers: string[],
     content: string[][]
 }
 
-const Table = ({headers, content}: TableProps) => {
+const Table = ({className, headers, content}: TableProps) => {
     return (
-    <table className={'nextRace'}>
+    <table className={className}>
           <thead>
             <tr>
                 {headers.map(header => <th>{header}</th>)}

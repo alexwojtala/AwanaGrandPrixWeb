@@ -87,6 +87,16 @@ const Lineup = () => {
         });
   }
 
+  const placeDropdown = (laneNumber: number) => <Select 
+    options={options} 
+    isSearchable={true}
+    autosize={true}
+    onChange={(event: any) => {
+      places[laneNumber] = Number(event.value);
+    }}
+    styles={customStyles}
+  />
+
   const customStyles = {
     control: (provided: any) => ({
       ...provided,
@@ -100,65 +110,19 @@ const Lineup = () => {
       <div className={'nextRaceContainer'}>
         <h3>Up Next</h3>
         {nextRace !== undefined && <Table 
+          className={'nextRace'}
           headers={['Group Id', 'Name']} 
           content={nextRace.lanes_by_group_id.map((lane: number, i: number) => [lane, nextRace.lanes_by_clubber[i]])}
         />}
-        {/* <table className={'nextRace'}>
-          <thead>
-            <tr>
-              <th>Group Id</th>
-              <th>Name</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            {nextRace != undefined && nextRace.lanes_by_group_id.map((lane: number, i: number) => {
-              return (
-                <tr>
-                  <td>{lane}</td>
-                  <td>{nextRace.lanes_by_clubber[i]}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table> */}
+        
       </div>
 
       <h3>Current Race ({ currentRace != undefined && raceCount != undefined && `${currentRace.id} / ${raceCount}`})</h3>
-      <table className={'currentRace'}>
-        <thead>
-          <tr>
-            <th>Group Id</th>
-            <th>Name</th>
-            <th>Place</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentRace != undefined && currentRace.lanes_by_group_id.map((lane: number, i: number) => {
-            return (
-              <tr>
-                <td>{lane}</td>
-                <td>{currentRace.lanes_by_clubber[i]}</td>
-                <td>
-                  <Select 
-                    options={options} 
-                    isSearchable={true}
-                    autosize={true}
-                    onChange={(event: any) => {
-                      places[i] = Number(event.value);
-                    }}
-                    styles={customStyles}
-                  />
-                </td>
-              </tr>
-            );
-          })
-            
-
-          }
-
-        </tbody>
-      </table>
+      {currentRace !== undefined && <Table 
+          className={'currentRace'}
+          headers={['Group Id', 'Name', 'Place']} 
+          content={currentRace.lanes_by_group_id.map((lane: number, i: number) => [lane, currentRace.lanes_by_clubber[i], placeDropdown(i)])}
+        />}
       { raceGroup && <button className={'submit-race-results-button'} onClick={submitRaceResults}>submit results</button>}
       { !isSubmittedResultsValid && <div className={'submit-race-results-error-message'}>Must have all places (1st through 4th) filled out</div>}
     </div>
