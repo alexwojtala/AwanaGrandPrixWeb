@@ -1,0 +1,16 @@
+button.enrollClubber {
+    margin-top: 24px;
+    font-size: 18px;    
+}
+
+.container {
+    width: fit-content;
+    margin: auto;
+}
+
+h2 {
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    margin-top: 32px;
+    font-size: 18px;
+}

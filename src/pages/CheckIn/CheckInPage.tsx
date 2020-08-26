@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Navigation from '../../components/Navigation/Navigation'
 import './CheckInPage.css'
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import CheckInConfirmation from '../../components/CheckInConfirmation/CheckInConfirmation';
 
 axios.defaults.headers.common = { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` }
 
@@ -39,14 +38,10 @@ const CheckInPage = () => {
       case TabState.SUBMITTED:
           return (
               <>
-              <Navigation></Navigation>
-              <div className={'container'}>
-                <h2>you're entered <FontAwesomeIcon icon={faCheck} /></h2>
-                <div>{clubber} is <strong>#{groupId}</strong></div>
-                <button className={'enrollClubber'} onClick={() => {
+                <Navigation></Navigation>
+                <CheckInConfirmation clubber={clubber} groupId={groupId} onContinue={() => {
                     setTab(TabState.FORM);
-                }}>Enroll next clubber</button>
-              </div>
+                }}/>
               </>
           )
         default:
