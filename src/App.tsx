@@ -8,6 +8,7 @@ const App = () => {
   const [password, setPassword] = useState();
   const [redirect, setRedirect] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loginFailed, setLoginFailed] = useState(false);
 
   const SignIn = (event: any) => {
     axios.post('/sign-in', {}, {
@@ -23,25 +24,27 @@ const App = () => {
         console.log(response.data.user.role);
         setRedirect(true);
         setLoading(false);
+        setLoginFailed(false);
       })
       .catch(function (error) {
         setLoading(false);
+        setLoginFailed(true);
         console.log(error);
       });
-      setLoading(true)
+      setLoading(true);
   }
 
   return (
     <>
       { redirect && <Redirect to="/cars" push /> }
-      { loading && 
+      {/* { loading && 
         <div className="loadingContainer">
           <div>Authenticating</div>
           <div className="loader" /> 
         </div>
-      }
+      } */}
       {
-        !redirect && !loading &&
+        !redirect &&
         <>
           <div className={'signInContainer'}>
             <h1>Sign in to Awana Grand Prix</h1>
@@ -54,7 +57,13 @@ const App = () => {
               
             <label className={'roleLoginInputLabel'}>Password</label> <br />
             <input className={'rolePasswordInput'}type="password" onChange={(event) => { setPassword(event.target.value) }} /><br />
-
+            { loading && 
+              <div className="loadingContainer">
+                <div>Authenticating</div>
+                <div className="loader" /> 
+              </div>
+            }
+            { !loading && loginFailed && <div className="loginFailed">Login failed. Invalid credentials.</div>}
             <button onClick={(event: any) => {
               SignIn(event);
             }}>Login</button>
