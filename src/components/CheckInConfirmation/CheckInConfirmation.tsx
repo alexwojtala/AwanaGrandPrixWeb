@@ -13,7 +13,7 @@ const CheckInConfirmation = ({clubber, groupId, onContinue}: CheckInConfrimation
         <div className={'container'}>
             <h2>you're entered <FontAwesomeIcon icon={faCheck} /></h2>
             <div>{clubber} is <strong>#{groupId}</strong></div>
-            <button className={'enrollClubber'} onClick={onContinue()}>Enroll next clubber</button>
+            <button className={'enrollClubber'} onClick={() => onContinue()}>Enroll next clubber</button>
         </div>
     )
 }

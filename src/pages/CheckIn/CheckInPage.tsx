@@ -19,7 +19,7 @@ const CheckInPage = () => {
   const [tab, setTab] = useState(TabState.FORM);
 
   const registerVehicle = (event: any) => {
-      event.preventDefault();
+    event.preventDefault();
     axios.post('/cars', {
         clubber,
         meets_requirements: meetsRequirments,
