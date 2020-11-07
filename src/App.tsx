@@ -7,6 +7,7 @@ const App = () => {
   const [role, setRole] = useState();
   const [password, setPassword] = useState();
   const [redirect, setRedirect] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const SignIn = (event: any) => {
     axios.post('/sign-in', {}, {
@@ -21,17 +22,26 @@ const App = () => {
         localStorage.setItem('role', response.data.user.role);
         console.log(response.data.user.role);
         setRedirect(true);
+        setLoading(false);
       })
       .catch(function (error) {
+        setLoading(false);
         console.log(error);
       });
+      setLoading(true)
   }
 
   return (
     <>
       { redirect && <Redirect to="/cars" push /> }
+      { loading && 
+        <div className="loadingContainer">
+          <div>Authenticating</div>
+          <div className="loader" /> 
+        </div>
+      }
       {
-        !redirect &&
+        !redirect && !loading &&
         <>
           <div className={'signInContainer'}>
             <h1>Sign in to Awana Grand Prix</h1>
