@@ -4,8 +4,8 @@ import "./App.css";
 import { Redirect } from "react-router";
 
 const App = () => {
-  const [role, setRole] = useState();
-  const [password, setPassword] = useState();
+  const [role, setRole] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [redirect, setRedirect] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loginFailed, setLoginFailed] = useState(false);
