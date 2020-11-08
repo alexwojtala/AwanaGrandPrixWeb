@@ -3,14 +3,14 @@ import axios from "axios";
 import "./App.css";
 import { Redirect } from "react-router";
 
-const App = () => {
+const App = (): JSX.Element => {
   const [role, setRole] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [redirect, setRedirect] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loginFailed, setLoginFailed] = useState(false);
 
-  const SignIn = (event: any) => {
+  const SignIn = () => {
     axios
       .post(
         "/sign-in",
@@ -22,7 +22,7 @@ const App = () => {
           },
         }
       )
-      .then(function (response) {
+      .then((response) => {
         localStorage.setItem("authToken", response.data.token);
         axios.defaults.headers.common = {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -33,7 +33,7 @@ const App = () => {
         setLoading(false);
         setLoginFailed(false);
       })
-      .catch(function (error) {
+      .catch((error) => {
         setLoading(false);
         setLoginFailed(true);
         console.log(error);
@@ -100,8 +100,8 @@ const App = () => {
               </div>
             )}
             <button
-              onClick={(event: any) => {
-                SignIn(event);
+              onClick={() => {
+                SignIn();
               }}
             >
               Login
