@@ -10,7 +10,7 @@ axios.defaults.headers.common = {
   Authorization: `Bearer ${localStorage.getItem("authToken")}`,
 };
 
-const Lineup = () => {
+const Lineup = (): JSX.Element => {
   const [currentRace, setCurrentRace] = useState<Race>();
   const [nextRace, setNextRace] = useState<Race>();
   const [raceGroup, setRaceGroup] = useState<number>(-1);
@@ -96,6 +96,7 @@ const Lineup = () => {
               lane,
               currentRace.lanes_by_clubber[i],
               <PlaceDropdown
+                key={`lane${i}`}
                 onChangeCallback={(place: number) => {
                   places[i] = Number(place);
                 }}
