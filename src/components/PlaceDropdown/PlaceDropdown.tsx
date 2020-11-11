@@ -1,6 +1,11 @@
 import React from "react";
 import Select from "react-select";
 
+interface Option {
+  label: string;
+  value: number;
+}
+
 interface PlaceDropdownProps {
   onChangeCallback: (place: number) => void;
 }
@@ -16,6 +21,7 @@ const PlaceDropdown = ({
   ];
 
   const customStyles = {
+    // eslint-disable-next-line
     control: (provided: any) => ({
       ...provided,
       width: 200,
@@ -27,7 +33,7 @@ const PlaceDropdown = ({
       options={options}
       isSearchable={true}
       autosize={true}
-      onChange={(event: any): void => onChangeCallback(event.value)}
+      onChange={(e) => onChangeCallback((e as Option).value)}
       styles={customStyles}
     />
   );
