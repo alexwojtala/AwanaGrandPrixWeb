@@ -1,35 +1,35 @@
 .container {
-    width: fit-content;
-    margin: auto;
+  width: fit-content;
+  margin: auto;
 }
 
 h2 {
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    margin-top: 32px;
-    font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  margin-top: 32px;
+  font-size: 18px;
 }
 
 input[type="radio"] {
-    margin-right: 4px;
+  margin-right: 4px;
 }
 
 .disabled,
 input[type="radio"]:disabled {
-    color: lightgray;
+  color: lightgray;
 }
 
 label {
-    margin-right: 12px;
+  margin-right: 12px;
 }
 
 input[type="text"] {
-    width: 100%;
+  width: 100%;
 }
 
 button.enter {
-    width: 30%;
-    font-size: 18px;    
-    margin-left: 35%;
-    margin-top: 32px;
+  width: 30%;
+  font-size: 18px;
+  margin-left: 35%;
+  margin-top: 32px;
 }

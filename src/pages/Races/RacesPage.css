@@ -13,7 +13,7 @@
 }
 
 .racesTable > thead > tr > th,
-.racesTable > tbody > tr:nth-child(even){
+.racesTable > tbody > tr:nth-child(even) {
   background-color: rgb(221, 221, 221);
 }
 
@@ -22,20 +22,19 @@
 }
 
 .choose-group-container > h1 {
-    font-size: 24px;
-    margin: 8px 0;
+  font-size: 24px;
+  margin: 8px 0;
 }
 
 .choose-group-container > button {
-  font-size: 18px;
   margin: 8px 16px;
   padding: 8px 16px;
   background-color: rgb(255, 230, 92);
-	color: inherit;
-	border: none;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  color: inherit;
+  border: none;
+  font: 18px, inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 .choose-group-container > button:hover {
