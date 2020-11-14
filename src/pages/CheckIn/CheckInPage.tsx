@@ -3,6 +3,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import "./CheckInPage.css";
 import axios from "axios";
 import CheckInConfirmation from "../../components/CheckInConfirmation/CheckInConfirmation";
+import Page from "../../components/Page/Page";
 
 axios.defaults.headers.common = {
   Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -53,98 +54,95 @@ const CheckInPage = (): JSX.Element => {
       );
     default:
       return (
-        <>
-          <Navigation></Navigation>
-          <main>
-            <form className={"container"} onSubmit={registerVehicle}>
-              <h1>Welcome to the Awana Grand Prix</h1>
-              <h2>Racer Name</h2>
-              <input
-                type="text"
-                aria-label="Racer's Name"
-                onChange={(event) => setClubber(event.target.value)}
-                required
-              ></input>
-              <h2>group</h2>
-              <div>
-                <label>
-                  <input
-                    type="radio"
-                    name="awana-group"
-                    value="Sparks"
-                    onChange={(event) => setClub(event.target.value)}
-                    required
-                  />
-                  Sparks
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="awana-group"
-                    value="Ultimate Adventure"
-                    onChange={(event) => setClub(event.target.value)}
-                  />
-                  Ultimate Adventure
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="awana-group"
-                    value="Ultimate Challenge"
-                    onChange={(event) => setClub(event.target.value)}
-                  />
-                  Ultimate Challenge
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="awana-group"
-                    value="Other"
-                    onChange={(event) => setClub(event.target.value)}
-                  />
-                  Other
-                </label>
-              </div>
-              <h2>division</h2>
-              <div>
-                {club !== "Other" && (
-                  <label>
-                    <input
-                      type="radio"
-                      name="division"
-                      value="Normal"
-                      onChange={() => setMeetsRequirements(true)}
-                    />
-                    Normal
-                  </label>
-                )}
-                {club === "Other" && (
-                  <label className="disabled">
-                    <input
-                      type="radio"
-                      name="division"
-                      value="Normal"
-                      onChange={() => setMeetsRequirements(true)}
-                      disabled
-                    />
-                    Normal
-                  </label>
-                )}
+        <Page>
+          <form className={"container"} onSubmit={registerVehicle}>
+            <h1>Welcome to the Awana Grand Prix</h1>
+            <h2>Racer Name</h2>
+            <input
+              type="text"
+              aria-label="Racer's Name"
+              onChange={(event) => setClubber(event.target.value)}
+              required
+            ></input>
+            <h2>group</h2>
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  name="awana-group"
+                  value="Sparks"
+                  onChange={(event) => setClub(event.target.value)}
+                  required
+                />
+                Sparks
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="awana-group"
+                  value="Ultimate Adventure"
+                  onChange={(event) => setClub(event.target.value)}
+                />
+                Ultimate Adventure
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="awana-group"
+                  value="Ultimate Challenge"
+                  onChange={(event) => setClub(event.target.value)}
+                />
+                Ultimate Challenge
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="awana-group"
+                  value="Other"
+                  onChange={(event) => setClub(event.target.value)}
+                />
+                Other
+              </label>
+            </div>
+            <h2>division</h2>
+            <div>
+              {club !== "Other" && (
                 <label>
                   <input
                     type="radio"
                     name="division"
-                    value="Outlaw"
-                    onChange={() => setMeetsRequirements(false)}
-                    required
+                    value="Normal"
+                    onChange={() => setMeetsRequirements(true)}
                   />
-                  Outlaw
+                  Normal
                 </label>
-              </div>
-              <button className={"enter"}>Enter</button>
-            </form>
-          </main>
-        </>
+              )}
+              {club === "Other" && (
+                <label className="disabled">
+                  <input
+                    type="radio"
+                    name="division"
+                    value="Normal"
+                    onChange={() => setMeetsRequirements(true)}
+                    disabled
+                  />
+                  Normal
+                </label>
+              )}
+              <label>
+                <input
+                  type="radio"
+                  name="division"
+                  value="Outlaw"
+                  onChange={() => setMeetsRequirements(false)}
+                  required
+                />
+                Outlaw
+              </label>
+            </div>
+            <button className={"enter"}>Enter</button>
+          </form>
+        </Page>
       );
   }
 };
