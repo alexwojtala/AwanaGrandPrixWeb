@@ -170,8 +170,12 @@ const Cars = (): JSX.Element => {
     case TabState.EDIT_CAR:
       return (
         <div style={{ width: "600px", margin: "32px auto" }}>
-          <label className={"editCarInputLabel"}>GROUP ID</label> <br />
+          <label htmlFor="editGroupId" className={"editCarInputLabel"}>
+            GROUP ID
+          </label>{" "}
+          <br />
           <input
+            id="editGroupId"
             className={"editCarInput"}
             type="text"
             onChange={(event) => {
@@ -180,8 +184,12 @@ const Cars = (): JSX.Element => {
             value={currentGroupId}
           />
           <br />
-          <label className={"editCarInputLabel"}>CLUBBER</label> <br />
+          <label htmlFor="editClubber" className={"editCarInputLabel"}>
+            CLUBBER
+          </label>{" "}
+          <br />
           <input
+            id="editClubber"
             className={"editCarInput"}
             type="text"
             onChange={(event) => {
@@ -190,8 +198,12 @@ const Cars = (): JSX.Element => {
             value={currentClubber}
           />
           <br />
-          <label className={"editCarInputLabel"}>CLUB</label> <br />
+          <label htmlFor="editClubber" className={"editCarInputLabel"}>
+            CLUB
+          </label>{" "}
+          <br />
           <input
+            id="editClub"
             className={"editCarInput"}
             type="text"
             onChange={(event) => {

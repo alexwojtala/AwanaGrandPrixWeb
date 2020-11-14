@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import React from "react";
 import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlagCheckered } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router-dom";
+import NavigationLink from "./NavigationLink";
 
 interface Location {
   pathname: string;
@@ -14,91 +14,43 @@ interface Props {
 }
 
 const Navigation = (props: Props) => {
-  const [redirectToCheckin, setRedirectToCheckin] = useState(false);
-  const [redirectToCars, setRedirectToCars] = useState(false);
-  const [redirectToRaces, setRedirectToRaces] = useState(false);
-  const [redirectToLineup, setRedirectToLineup] = useState(false);
-  const [redirectToLeaderboard, setRedirectToLeaderboard] = useState(false);
-  const [redirectToLogin, setRedirectToLogin] = useState(false);
-
   return (
     <div>
       <div className={"navContainer"}>
-        {redirectToCheckin && <Redirect to="/check-in" />}
-        {redirectToCars && <Redirect to="/cars" />}
-        {redirectToRaces && <Redirect to="/races" />}
-        {redirectToLineup && <Redirect to="/lineup" />}
-        {redirectToLeaderboard && <Redirect to="/leaderboard" />}
-        {redirectToLogin && <Redirect to="/" />}
         <div className={"logo"}>
           <FontAwesomeIcon icon={faFlagCheckered} />
           &nbsp;&nbsp;&nbsp;AWANA Grand Prix
         </div>
-        <div
-          className={"loginLink"}
-          onClick={() => {
-            setRedirectToLogin(true);
-          }}
-        >
+        <a className={"loginLink"} href="/">
           {localStorage.getItem("role")
             ? localStorage.getItem("role")
             : "login"}
-        </div>
-        <div
-          className={
-            "navLink" +
-            (props.location.pathname === "/check-in" ? " selectedLink" : "")
-          }
-          onClick={() => {
-            setRedirectToCheckin(true);
-          }}
-        >
-          Check In
-        </div>
-        <div
-          className={
-            "navLink" +
-            (props.location.pathname === "/cars" ? " selectedLink" : "")
-          }
-          onClick={() => {
-            setRedirectToCars(true);
-          }}
-        >
-          Cars
-        </div>
-        <div
-          className={
-            "navLink" +
-            (props.location.pathname === "/races" ? " selectedLink" : "")
-          }
-          onClick={() => {
-            setRedirectToRaces(true);
-          }}
-        >
-          Races
-        </div>
-        <div
-          className={
-            "navLink" +
-            (props.location.pathname === "/lineup" ? " selectedLink" : "")
-          }
-          onClick={() => {
-            setRedirectToLineup(true);
-          }}
-        >
-          Lineup
-        </div>
-        <div
-          className={
-            "navLink" +
-            (props.location.pathname === "/leaderboard" ? " selectedLink" : "")
-          }
-          onClick={() => {
-            setRedirectToLeaderboard(true);
-          }}
-        >
-          Leaderboard
-        </div>
+        </a>
+        <NavigationLink
+          path="/check-in"
+          text="Check In"
+          currentPathname={props.location.pathname}
+        />
+        <NavigationLink
+          path="/cars"
+          text="Cars"
+          currentPathname={props.location.pathname}
+        />
+        <NavigationLink
+          path="/races"
+          text="Races"
+          currentPathname={props.location.pathname}
+        />
+        <NavigationLink
+          path="/lineup"
+          text="Lineup"
+          currentPathname={props.location.pathname}
+        />
+        <NavigationLink
+          path="/leaderboard"
+          text="Leaderboard"
+          currentPathname={props.location.pathname}
+        />
       </div>
     </div>
   );
