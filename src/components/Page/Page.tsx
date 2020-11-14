@@ -2,7 +2,7 @@ import React from "react";
 import Navigation from "../../components/Navigation/Navigation";
 
 interface Props {
-  children: JSX.Element;
+  children: JSX.Element | (boolean | number | JSX.Element)[];
 }
 
 const Page = ({ children }: Props): JSX.Element => {

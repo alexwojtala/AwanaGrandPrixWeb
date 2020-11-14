@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Navigation from "../../components/Navigation/Navigation";
 import "./LeaderboardPage.css";
 import Leaderboard from "../../components/Leaderboard/Leaderboard";
+import Page from "../../components/Page/Page";
 
 axios.defaults.headers.common = {
   Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -26,13 +26,12 @@ const LeaderboardPage = (): JSX.Element => {
   }, []);
 
   return (
-    <>
-      <Navigation></Navigation>
+    <Page>
       <div className={"leaderboardsContainer"}>
         <Leaderboard title={"Regular"} leaders={regulars} />
         <Leaderboard title={"Outlaw"} leaders={outlaws} />
       </div>
-    </>
+    </Page>
   );
 };
 

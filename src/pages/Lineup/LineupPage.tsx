@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import Navigation from "../../components/Navigation/Navigation";
 import "./LineupPage.css";
 import Table from "../../components/Table/Table";
 import RaceGroupService, { Race } from "../../services/RaceGroupService";
 import PlaceDropdown from "../../components/PlaceDropdown/PlaceDropdown";
+import Page from "../../components/Page/Page";
 
 axios.defaults.headers.common = {
   Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -65,8 +65,7 @@ const Lineup = (): JSX.Element => {
   };
 
   return (
-    <div>
-      <Navigation></Navigation>
+    <Page>
       <div className={"nextRaceContainer"}>
         <h3>Up Next</h3>
         {nextRace !== undefined && (
@@ -118,7 +117,7 @@ const Lineup = (): JSX.Element => {
           Must have all places (1st through 4th) filled out
         </div>
       )}
-    </div>
+    </Page>
   );
 };
 

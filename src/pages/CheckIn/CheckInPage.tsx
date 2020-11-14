@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navigation from "../../components/Navigation/Navigation";
 import "./CheckInPage.css";
 import axios from "axios";
 import CheckInConfirmation from "../../components/CheckInConfirmation/CheckInConfirmation";
@@ -41,8 +40,7 @@ const CheckInPage = (): JSX.Element => {
   switch (tab) {
     case TabState.SUBMITTED:
       return (
-        <>
-          <Navigation></Navigation>
+        <Page>
           <CheckInConfirmation
             clubber={clubber}
             groupId={groupId}
@@ -50,7 +48,7 @@ const CheckInPage = (): JSX.Element => {
               setTab(TabState.FORM);
             }}
           />
-        </>
+        </Page>
       );
     default:
       return (

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Navigation from "../../components/Navigation/Navigation";
 import "./Cars.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
+import Page from "../../components/Page/Page";
 
 enum Sort {
   NONE,
@@ -232,9 +232,8 @@ const Cars = (): JSX.Element => {
       );
     default:
       return (
-        <>
-          <Navigation></Navigation>
-
+        <Page>
+          <h1>Registered Racers</h1>
           <table className={"carsTable"}>
             <thead>
               <tr>
@@ -289,7 +288,7 @@ const Cars = (): JSX.Element => {
                 cars.sort(sortByDivision).map(carRow)}
             </tbody>
           </table>
-        </>
+        </Page>
       );
   }
 };

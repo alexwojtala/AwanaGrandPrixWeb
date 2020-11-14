@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Navigation from "../../components/Navigation/Navigation";
 import "./RacesPage.css";
+import Page from "../../components/Page/Page";
 
 axios.defaults.headers.common = {
   Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -43,9 +43,8 @@ const Races = (): JSX.Element => {
   switch (tab) {
     case TabState.RACE_STARTED:
       return (
-        <>
-          <Navigation></Navigation>
-
+        <Page>
+          <h1>Race Order</h1>
           <table className={"racesTable"}>
             <thead>
               <tr>
@@ -71,12 +70,11 @@ const Races = (): JSX.Element => {
                 })}
             </tbody>
           </table>
-        </>
+        </Page>
       );
     case TabState.CHOOSE_GROUP_TO_START:
       return (
-        <>
-          <Navigation></Navigation>
+        <Page>
           <div className={"choose-group-container"}>
             <h1>Which type?</h1>
             <button
@@ -98,14 +96,13 @@ const Races = (): JSX.Element => {
               Outlaw
             </button>
           </div>
-        </>
+        </Page>
       );
     default:
       return (
-        <>
-          <Navigation></Navigation>
+        <Page>
           <div className={"start-race-container"}>
-            <div>No Races have been started.</div>
+            <h1>No Races have been started.</h1>
             <button
               onClick={() => {
                 setTab(TabState.CHOOSE_GROUP_TO_START);
@@ -114,7 +111,7 @@ const Races = (): JSX.Element => {
               Start Race
             </button>
           </div>
-        </>
+        </Page>
       );
   }
 };
