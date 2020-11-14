@@ -3,6 +3,7 @@ import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlagCheckered } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router-dom";
+import NavigationLink from "./NavigationLink";
 
 interface Location {
   pathname: string;
@@ -25,51 +26,31 @@ const Navigation = (props: Props) => {
             ? localStorage.getItem("role")
             : "login"}
         </a>
-        <a
-          className={
-            "navLink" +
-            (props.location.pathname === "/check-in" ? " selectedLink" : "")
-          }
-          href="/check-in"
-        >
-          Check In
-        </a>
-        <a
-          className={
-            "navLink" +
-            (props.location.pathname === "/cars" ? " selectedLink" : "")
-          }
-          href="/cars"
-        >
-          Cars
-        </a>
-        <a
-          className={
-            "navLink" +
-            (props.location.pathname === "/races" ? " selectedLink" : "")
-          }
-          href="/races"
-        >
-          Races
-        </a>
-        <a
-          className={
-            "navLink" +
-            (props.location.pathname === "/lineup" ? " selectedLink" : "")
-          }
-          href="/lineup"
-        >
-          Lineup
-        </a>
-        <a
-          className={
-            "navLink" +
-            (props.location.pathname === "/leaderboard" ? " selectedLink" : "")
-          }
-          href="/leaderboard"
-        >
-          Leaderboard
-        </a>
+        <NavigationLink
+          path="/check-in"
+          text="Check In"
+          currentPathname={props.location.pathname}
+        />
+        <NavigationLink
+          path="/cars"
+          text="Cars"
+          currentPathname={props.location.pathname}
+        />
+        <NavigationLink
+          path="/races"
+          text="Races"
+          currentPathname={props.location.pathname}
+        />
+        <NavigationLink
+          path="/lineup"
+          text="Lineup"
+          currentPathname={props.location.pathname}
+        />
+        <NavigationLink
+          path="/leaderboard"
+          text="Leaderboard"
+          currentPathname={props.location.pathname}
+        />
       </div>
     </div>
   );

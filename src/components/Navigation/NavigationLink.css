@@ -1,0 +1,28 @@
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.navLink {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 4px 12px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.selectedLink {
+  font-weight: 500;
+  border-bottom: 2px black solid;
+}
+
+.navLink:hover {
+  background-color: rgb(157, 216, 255);
+}

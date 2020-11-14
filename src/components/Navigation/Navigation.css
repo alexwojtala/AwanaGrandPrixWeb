@@ -13,16 +13,6 @@
   font-style: italic;
 }
 
-button {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}
-
 a:link {
   text-decoration: inherit;
   color: inherit;
@@ -35,27 +25,6 @@ a:visited {
   cursor: auto;
 }
 
-.navLink {
-  font-size: 14px;
-  font-weight: 300;
-  margin: 4px 12px;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.selectedLink {
-  font-weight: 500;
-  border-bottom: 2px black solid;
-  /* background-color: rgb(157, 216, 255); */
-  /* border-radius: 2px; */
-  /* border-radius: 1000px; */
-}
-
-.navLink:hover {
-  background-color: rgb(157, 216, 255);
-  /* border-radius: 1000px; */
-}
-
 .loginLink {
   font-size: 16px;
   font-weight: 500;
@@ -63,12 +32,10 @@ a:visited {
   padding: 8px 12px;
   cursor: pointer;
   align-self: flex-end;
-  /* flex-basis: 65%; */
   text-align: right;
   text-transform: capitalize;
 }
 
 .loginLink:hover {
   background-color: rgb(157, 216, 255);
-  /* border-radius: 1000px; */
 }
