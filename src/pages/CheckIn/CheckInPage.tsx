@@ -55,93 +55,95 @@ const CheckInPage = (): JSX.Element => {
       return (
         <>
           <Navigation></Navigation>
-          <form className={"container"} onSubmit={registerVehicle}>
-            <h1>Welcome to the Awana Grand Prix</h1>
-            <h2>Racer Name</h2>
-            <input
-              type="text"
-              aria-label="Racer's Name"
-              onChange={(event) => setClubber(event.target.value)}
-              required
-            ></input>
-            <h2>group</h2>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  name="awana-group"
-                  value="Sparks"
-                  onChange={(event) => setClub(event.target.value)}
-                  required
-                />
-                Sparks
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="awana-group"
-                  value="Ultimate Adventure"
-                  onChange={(event) => setClub(event.target.value)}
-                />
-                Ultimate Adventure
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="awana-group"
-                  value="Ultimate Challenge"
-                  onChange={(event) => setClub(event.target.value)}
-                />
-                Ultimate Challenge
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="awana-group"
-                  value="Other"
-                  onChange={(event) => setClub(event.target.value)}
-                />
-                Other
-              </label>
-            </div>
-            <h2>division</h2>
-            <div>
-              {club !== "Other" && (
+          <main>
+            <form className={"container"} onSubmit={registerVehicle}>
+              <h1>Welcome to the Awana Grand Prix</h1>
+              <h2>Racer Name</h2>
+              <input
+                type="text"
+                aria-label="Racer's Name"
+                onChange={(event) => setClubber(event.target.value)}
+                required
+              ></input>
+              <h2>group</h2>
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="awana-group"
+                    value="Sparks"
+                    onChange={(event) => setClub(event.target.value)}
+                    required
+                  />
+                  Sparks
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="awana-group"
+                    value="Ultimate Adventure"
+                    onChange={(event) => setClub(event.target.value)}
+                  />
+                  Ultimate Adventure
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="awana-group"
+                    value="Ultimate Challenge"
+                    onChange={(event) => setClub(event.target.value)}
+                  />
+                  Ultimate Challenge
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="awana-group"
+                    value="Other"
+                    onChange={(event) => setClub(event.target.value)}
+                  />
+                  Other
+                </label>
+              </div>
+              <h2>division</h2>
+              <div>
+                {club !== "Other" && (
+                  <label>
+                    <input
+                      type="radio"
+                      name="division"
+                      value="Normal"
+                      onChange={() => setMeetsRequirements(true)}
+                    />
+                    Normal
+                  </label>
+                )}
+                {club === "Other" && (
+                  <label className="disabled">
+                    <input
+                      type="radio"
+                      name="division"
+                      value="Normal"
+                      onChange={() => setMeetsRequirements(true)}
+                      disabled
+                    />
+                    Normal
+                  </label>
+                )}
                 <label>
                   <input
                     type="radio"
                     name="division"
-                    value="Normal"
-                    onChange={() => setMeetsRequirements(true)}
+                    value="Outlaw"
+                    onChange={() => setMeetsRequirements(false)}
+                    required
                   />
-                  Normal
+                  Outlaw
                 </label>
-              )}
-              {club === "Other" && (
-                <label className="disabled">
-                  <input
-                    type="radio"
-                    name="division"
-                    value="Normal"
-                    onChange={() => setMeetsRequirements(true)}
-                    disabled
-                  />
-                  Normal
-                </label>
-              )}
-              <label>
-                <input
-                  type="radio"
-                  name="division"
-                  value="Outlaw"
-                  onChange={() => setMeetsRequirements(false)}
-                  required
-                />
-                Outlaw
-              </label>
-            </div>
-            <button className={"enter"}>Enter</button>
-          </form>
+              </div>
+              <button className={"enter"}>Enter</button>
+            </form>
+          </main>
         </>
       );
   }
