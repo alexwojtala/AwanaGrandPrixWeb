@@ -28,7 +28,6 @@ const App = (): JSX.Element => {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         };
         localStorage.setItem("role", response.data.user.role);
-        console.log(response.data.user.role);
         setRedirect(true);
         setLoading(false);
         setLoginFailed(false);
@@ -45,10 +44,10 @@ const App = (): JSX.Element => {
     <>
       {redirect && <Redirect to="/cars" push />}
       {!redirect && (
-        <>
+        <main>
           <div className={"signInContainer"}>
             <h1>Sign in to Awana Grand Prix</h1>
-            <h3 className={"roleLoginInputLabel"}>Role</h3>
+            <h2 className={"roleLoginInputLabel"}>Role</h2>
             <div className={"roleRadioButtons"}>
               <input
                 id="role-guest"
@@ -79,7 +78,7 @@ const App = (): JSX.Element => {
                   setRole(event.target.value);
                 }}
               />{" "}
-              <label htmlFor="role-volunteer">Admin</label>
+              <label htmlFor="role-admin">Admin</label>
               <br />
             </div>
             <label htmlFor="password" className={"roleLoginInputLabel"}>
@@ -114,7 +113,7 @@ const App = (): JSX.Element => {
               Login
             </button>
           </div>
-        </>
+        </main>
       )}
     </>
   );

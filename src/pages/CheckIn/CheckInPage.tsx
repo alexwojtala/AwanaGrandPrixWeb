@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Navigation from "../../components/Navigation/Navigation";
 import "./CheckInPage.css";
 import axios from "axios";
 import CheckInConfirmation from "../../components/CheckInConfirmation/CheckInConfirmation";
+import Page from "../../components/Page/Page";
 
 axios.defaults.headers.common = {
   Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -40,8 +40,7 @@ const CheckInPage = (): JSX.Element => {
   switch (tab) {
     case TabState.SUBMITTED:
       return (
-        <>
-          <Navigation></Navigation>
+        <Page>
           <CheckInConfirmation
             clubber={clubber}
             groupId={groupId}
@@ -49,12 +48,11 @@ const CheckInPage = (): JSX.Element => {
               setTab(TabState.FORM);
             }}
           />
-        </>
+        </Page>
       );
     default:
       return (
-        <>
-          <Navigation></Navigation>
+        <Page>
           <form className={"container"} onSubmit={registerVehicle}>
             <h1>Welcome to the Awana Grand Prix</h1>
             <h2>Racer Name</h2>
@@ -142,7 +140,7 @@ const CheckInPage = (): JSX.Element => {
             </div>
             <button className={"enter"}>Enter</button>
           </form>
-        </>
+        </Page>
       );
   }
 };

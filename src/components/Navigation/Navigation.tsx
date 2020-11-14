@@ -15,7 +15,7 @@ interface Props {
 
 const Navigation = (props: Props) => {
   return (
-    <div>
+    <nav>
       <div className={"navContainer"}>
         <div className={"logo"}>
           <FontAwesomeIcon icon={faFlagCheckered} />
@@ -52,7 +52,7 @@ const Navigation = (props: Props) => {
           currentPathname={props.location.pathname}
         />
       </div>
-    </div>
+    </nav>
   );
 };
 
