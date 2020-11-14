@@ -51,6 +51,7 @@ const App = (): JSX.Element => {
             <h3 className={"roleLoginInputLabel"}>Role</h3>
             <div className={"roleRadioButtons"}>
               <input
+                id="role-guest"
                 type="radio"
                 name="role"
                 value="guest"
@@ -58,8 +59,9 @@ const App = (): JSX.Element => {
                   setRole(event.target.value);
                 }}
               />{" "}
-              <label>Guest</label>
+              <label htmlFor="role-guest">Guest</label>
               <input
+                id="role-volunteer"
                 type="radio"
                 name="role"
                 value="volunteer"
@@ -67,8 +69,9 @@ const App = (): JSX.Element => {
                   setRole(event.target.value);
                 }}
               />{" "}
-              <label>Volunteer</label>
+              <label htmlFor="role-volunteer">Volunteer</label>
               <input
+                id="role-admin"
                 type="radio"
                 name="role"
                 value="admin"
@@ -76,11 +79,15 @@ const App = (): JSX.Element => {
                   setRole(event.target.value);
                 }}
               />{" "}
-              <label>Admin</label>
+              <label htmlFor="role-volunteer">Admin</label>
               <br />
             </div>
-            <label className={"roleLoginInputLabel"}>Password</label> <br />
+            <label htmlFor="password" className={"roleLoginInputLabel"}>
+              Password
+            </label>{" "}
+            <br />
             <input
+              id="password"
               className={"rolePasswordInput"}
               type="password"
               onChange={(event) => {
