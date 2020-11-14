@@ -240,7 +240,6 @@ const Cars = (): JSX.Element => {
                 <th
                   onClick={() => {
                     setSort(Sort.GROUPID);
-                    console.log(sort);
                   }}
                 >
                   ID <FontAwesomeIcon icon={faSort} />

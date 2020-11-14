@@ -7,10 +7,12 @@ interface Option {
 }
 
 interface PlaceDropdownProps {
+  label: string;
   onChangeCallback: (place: number) => void;
 }
 
 const PlaceDropdown = ({
+  label,
   onChangeCallback,
 }: PlaceDropdownProps): JSX.Element => {
   const options = [
@@ -30,6 +32,7 @@ const PlaceDropdown = ({
 
   return (
     <Select
+      aria-label={label}
       options={options}
       isSearchable={true}
       autosize={true}

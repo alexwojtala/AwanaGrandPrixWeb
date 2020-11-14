@@ -28,7 +28,6 @@ const App = (): JSX.Element => {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         };
         localStorage.setItem("role", response.data.user.role);
-        console.log(response.data.user.role);
         setRedirect(true);
         setLoading(false);
         setLoginFailed(false);

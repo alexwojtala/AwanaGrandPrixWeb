@@ -67,7 +67,8 @@ const Lineup = (): JSX.Element => {
   return (
     <Page>
       <div className={"nextRaceContainer"}>
-        <h3>Up Next</h3>
+        <h1>Race Lineup</h1>
+        <h2>Up Next</h2>
         {nextRace !== undefined && (
           <Table
             className={"nextRace"}
@@ -79,13 +80,13 @@ const Lineup = (): JSX.Element => {
         )}
       </div>
 
-      <h3>
+      <h2>
         Current Race (
         {currentRace !== undefined &&
           raceCount !== undefined &&
           `${currentRace.id} / ${raceCount}`}
         )
-      </h3>
+      </h2>
       {currentRace !== undefined && (
         <Table
           className={"currentRace"}
@@ -96,6 +97,7 @@ const Lineup = (): JSX.Element => {
               currentRace.lanes_by_clubber[i],
               <PlaceDropdown
                 key={`lane${i}`}
+                label={`lane${i}Position`}
                 onChangeCallback={(place: number) => {
                   places[i] = Number(place);
                 }}

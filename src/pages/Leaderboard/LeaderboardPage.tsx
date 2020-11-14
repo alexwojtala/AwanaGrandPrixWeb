@@ -18,7 +18,6 @@ const LeaderboardPage = (): JSX.Element => {
       .then(function (response) {
         setOutlaws(response.data.outlaws);
         setRegulars(response.data.regular);
-        console.log(response.data.regular);
       })
       .catch(function (error) {
         console.log(error);
